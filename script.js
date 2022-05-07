@@ -1,17 +1,13 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+let btnAdd = document.querySelector('button');
+let input = document.querySelector('input');
+let select = document.querySelector('select');
 
-button, input {
-    padding: 5px 20px;
-    margin: 5px;
-}
+btnAdd.addEventListener('click', () =>{
+    let option = document.createElement('option');
+    option.value = input.value.toLowerCase();
+    option.text = input.value;
 
-select{
-    padding: 5px;
-    margin-top: 10px;
-    width: 22%; 
-}
+    let currentIndex = select.options[select.selectedIndex];
+    select.add(option, currentIndex);
+    input.value = '';
+});
